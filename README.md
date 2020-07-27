@@ -1,6 +1,6 @@
 # The-House-on-the-Hill
 
-The house on the hill is a Mystery Adventure game. Starring two 13 year old boys discovering the mystery of the forgotten house on the hill.
+The house on the hill is a text based Mystery Adventure game. Starring two 13 year old boys discovering the mystery of the forgotten house on the hill.
 It's currently a work in progress.
 
 # The Backstory:
