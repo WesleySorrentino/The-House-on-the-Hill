@@ -1,5 +1,7 @@
 package ConsuleUI;
 
+import Utilities.Utilities;
+
 import java.util.Scanner;
 
 public class Menu {
@@ -35,9 +37,12 @@ public class Menu {
     }
 
     private void backStory() {
-        System.out.println("\nThe year is 2000, You are a 13 year old kid.\n" +
+        String text = "\nThe year is 2000, You are a 13 year old kid.\n" +
                 "You just finished your dad's old Hardy boys books\n" +
-                "and you feel inspired to go on a mystery yourself.\n");
+                "and you feel inspired to go on a mystery yourself.\n";
+
+        Utilities.slowTextScroll(text,800);
+
     }
 
 }
