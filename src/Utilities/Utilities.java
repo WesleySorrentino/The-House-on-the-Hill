@@ -5,6 +5,11 @@ import java.io.IOException;
 import java.io.StringReader;
 
 public class Utilities {
+    /**
+     *
+     * @param text input the text you want display slowly
+     * @param milliseconds enter the amount of milliseconds you want to display
+     */
     public static void slowTextScroll(String text, long milliseconds) {
         BufferedReader bufReader = new BufferedReader(new StringReader(text));
         String line = null;
@@ -21,7 +26,6 @@ public class Utilities {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
         }
     }
 }
