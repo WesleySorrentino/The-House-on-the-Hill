@@ -1,8 +1,11 @@
 package ConsuleUI;
 
+import Player.Player;
+
 import static Utilities.Utilities.slowTextScroll;
 
 public class Chapters {
+    private static Player jake = new Player("Jake");
 
     public static void intro() {
         String introText =
