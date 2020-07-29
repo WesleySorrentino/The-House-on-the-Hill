@@ -1,8 +1,9 @@
 package ConsuleUI;
 
-import Utilities.Utilities;
+import static Utilities.Utilities.slowTextScroll;
 
 public class Chapters {
+
     public static void intro() {
         String introText =
                 "Intro: " +
@@ -24,7 +25,6 @@ public class Chapters {
                         "\nMark: You know what Jake, I'm in.\n" +
                         "\nJake: Awesome, we will go on Saturday. We can tell our parent we are just going to hangout in town.\n" +
                         "\nNarrator: The day is now Saturday the boys pack the supplies they might need for the exploration, with them being Boy Scouts they know to Be Prepared.\n";
-
-        Utilities.slowTextScroll(introText,1100);
+        slowTextScroll(introText,1100);
     }
 }
