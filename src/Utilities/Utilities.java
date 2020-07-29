@@ -8,7 +8,7 @@ public class Utilities {
     /**
      *
      * @param text input the text you want display slowly
-     * @param milliseconds enter the amount of milliseconds you want to display
+     * @param milliseconds enter the amount of milliseconds you want it display at
      */
     public static void slowTextScroll(String text, long milliseconds) {
         BufferedReader bufReader = new BufferedReader(new StringReader(text));
