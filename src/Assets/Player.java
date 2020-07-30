@@ -15,7 +15,7 @@ public class Player {
         inventory.put(new Item("Water"),1);
     }
 
-    public void openInventory() {
+    public void displayInventory() {
         for (Map.Entry<Item,Integer> entry : inventory.entrySet()) {
             Item items = entry.getKey();
             int quantity = entry.getValue();
