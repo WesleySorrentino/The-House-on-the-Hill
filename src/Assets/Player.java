@@ -1,6 +1,4 @@
-package Player;
-
-import Assets.Item;
+package Assets;
 
 import java.util.HashMap;
 import java.util.Map;

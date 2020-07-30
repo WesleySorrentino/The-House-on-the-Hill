@@ -1,6 +1,6 @@
 package ConsuleUI;
 
-import Player.Player;
+import Assets.Player;
 
 import static Utilities.Utilities.slowTextScroll;
 
