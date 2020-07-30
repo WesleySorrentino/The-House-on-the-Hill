@@ -7,7 +7,7 @@ import static Utilities.Utilities.slowTextScroll;
 public class Chapters {
     private static Player jake = new Player("Jake");
 
-    public static void intro() {
+    public void intro() {
         String introText =
                 "Intro: " +
                         "September 13th, It’s the beginning of the school year. Everyday on your way to school every year,\n" +
@@ -29,5 +29,33 @@ public class Chapters {
                         "\nJake: Awesome, we will go on Saturday. We can tell our parent we are just going to hangout in town.\n" +
                         "\nNarrator: The day is now Saturday the boys pack the supplies they might need for the exploration, with them being Boy Scouts they know to Be Prepared.\n";
         slowTextScroll(introText,1100);
+    }
+
+    public void entry() {
+        String entryText =
+                "Chapter 1 - Entry\n" +
+                        "\nNarrator: Mark and Jake both agreed to meet at Jake's house..\n" +
+                        "\nMark: (Knocks on door)\n" +
+                        "\nJake's Mom: Hey Mark, it's nice to see you.\n" +
+                        "\nMark: Hello Ms. Jake's mom, Is Jake ready?\n" +
+                        "\nJake's Mom: Let me go see if he is.\n" +
+                        "\nJake's Mom: (Shouts from downstairs) Jake! Mark is here!\n" +
+                        "\nJake's Mom: He's in his room Mark, You can come on in.\n" +
+                        "\nMark: Thanks, Ms. Jake's Mom.\n" +
+                        "\nNarrator: Mark heads upstairs to Jake's room.\n" +
+                        "\nJake: Did you bring supplies?\n" +
+                        "\nMark: Yep, I brought. One flashlight, My First aid kit we made last Boy Scout meeting,\n" +
+                        "some snacks and my pocket knife. What did you bring?\n" +
+                        "\nJake: I packed Two flashlights, I wanted to make sure we were prepared,\n" +
+                        "I got some water bottles from my fridge just in case we need them,\n" +
+                        "and I brought my favorite pocket knife.\n" +
+                        "\nMark: We've got food and water covered as well as some flashlights.\n" +
+                        "Are we ready to head out?\n" +
+                        "\nJake: Let's head out.\n" +
+                        "\nNarrator: The boys head out on their journey. After a 10 minute walk they reach the house.." +
+                        "\nMark: Well we are here, what's the plan Jake?\n" +
+                        "\nJake: We can either go through the main gate or we can go around the back of the house.\n" +
+                        "\nMark: Its your call, What are going to do?";
+        slowTextScroll(entryText,800);
     }
 }

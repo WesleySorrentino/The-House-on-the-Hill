@@ -6,6 +6,13 @@ import java.io.StringReader;
 
 public class Utilities {
     /**
+     * @param text input the text you want display slowly
+     */
+    public static void slowTextScroll(String text) {
+        slowTextScroll(text,800);
+    }
+
+    /**
      *
      * @param text input the text you want display slowly
      * @param milliseconds enter the amount of milliseconds you want it display at
