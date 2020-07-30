@@ -6,7 +6,7 @@ import static Utilities.Utilities.slowTextScroll;
 
 public class Chapters {
     private static Player jake = new Player("Jake");
-
+//  Displays text for the intro
     public void intro() {
         String introText =
                 "Intro: " +
@@ -30,7 +30,7 @@ public class Chapters {
                         "\nNarrator: The day is now Saturday the boys pack the supplies they might need for the exploration, with them being Boy Scouts they know to Be Prepared.\n";
         slowTextScroll(introText,1100);
     }
-
+//  Display's text for the first chapter
     public void entry() {
         String entryText =
                 "Chapter 1 - Entry\n" +

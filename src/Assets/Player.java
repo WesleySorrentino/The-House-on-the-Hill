@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Player {
-    private String name;
-    private Map<Item,Integer> inventory = new HashMap<>();
+    private final String name;
+    private final Map<Item,Integer> inventory = new HashMap<>();
 
     public Player(String name) {
         this.name = name;
