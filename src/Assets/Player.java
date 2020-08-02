@@ -11,14 +11,17 @@ public class Player {
     public Player(String name) {
         this.name = name;
     }
-
+//  Displays the current Inventory the user has
     private void displayInventory() {
         int increment = 1;
         for (Key key : keyInventory) {
             System.out.println(increment++ + ". " + key.getName() + " x" + key.getQuantity());
         }
     }
-
+    /**
+     * Allows user to try and open doors
+     * @param door Input the door you want to try and open
+     */
     public void useKey(Door door) {
         displayInventory();
         System.out.println("Type the number of the key you want to use: ");
@@ -26,11 +29,18 @@ public class Player {
 
         if (choice <= keyInventory.size()) {
             door.openDoor(keyInventory.get(choice - 1));
-            keyInventory.remove(choice -1);
         } else {
             System.out.println("Please enter a valid number!");
         }
     }
+//  Adds a item to inventory
+    /**
+     * @param item Adds an item to user's inventory
+     */
+    public void addToInventory(Item item) {
+        addToInventory(item);
+    }
+//  Adds a Key to inventory
     /**
      * @param item enter the item you wanna give the user
      */
@@ -39,6 +49,7 @@ public class Player {
         System.out.println("Added " + item.getName() + " to inventory.\n");
     }
 //  Display's the available options for the user
+//  TODO Add ability to use items
     public void userAction(Door door) {
         System.out.println("1. Use Key");
         System.out.println("2. Display Inventory");
@@ -56,6 +67,7 @@ public class Player {
                 break;
             default:
                 System.out.println("Please enter a valid number!");
+                break;
         }
     }
 

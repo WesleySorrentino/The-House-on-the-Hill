@@ -8,17 +8,18 @@ public class Menu {
     private final Scanner s = new Scanner(System.in);
 
     public void startScreen() {
-        System.out.println("Welcome to The House on the Hill!");
-        selection();
+        String userName = enterName();
+        System.out.println("Welcome to The House on the Hill " + userName + "!");
+        selection(userName);
     }
 
-    private void selection() {
+    private void selection(String userName) {
 //      Displays options on the menu
         while (true) {
             System.out.println(
                     "\n1. Start Game\n" +
-                            "2. Backstory\n" +
-                            "3. Quit Game\n");
+                    "2. Backstory\n" +
+                    "3. Quit Game\n");
 
             System.out.println("Type a number for your selection: ");
             int choice = s.nextInt();
@@ -27,7 +28,7 @@ public class Menu {
             switch (choice) {
                 case 1:
 //                  Runs the game
-                    StoryManager.startGame();
+                    StoryManager.startGame(userName);
                     System.out.println("To be continued... Game under construction\nPlease wait til next update...");
                     break;
                 case 2:
@@ -49,5 +50,12 @@ public class Menu {
                 "and you feel inspired to go on a mystery yourself.\n";
 
         Utilities.slowTextScroll(text,800);
+    }
+
+    private String enterName() {
+        System.out.println("Please enter your name: ");
+        String playerInput = s.nextLine();
+
+        return playerInput;
     }
 }
