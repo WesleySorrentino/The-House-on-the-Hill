@@ -21,4 +21,8 @@ public class Door {
             System.out.println("You tried to open the " + name + ", but you have the wrong key!\n");
         }
     }
+
+    public String getName() {
+        return name;
+    }
 }

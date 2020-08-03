@@ -51,8 +51,12 @@ public class Player {
 //  Display's the available options for the user
 //  TODO Add ability to use items
     public void userAction(Door door) {
-        System.out.println("1. Use Key");
-        System.out.println("2. Display Inventory");
+        String text =
+                "\n1. Use Key on " + door.getName() +
+                "\n2. Display Inventory" +
+                "\n3. Go back";
+
+        System.out.println(text);
 
         System.out.println("Type a number listed above: ");
         int selection = s.nextInt();
@@ -64,6 +68,9 @@ public class Player {
                 break;
             case 2:
                 displayInventory();
+                break;
+            case 3:
+//              Gets out of selecting options
                 break;
             default:
                 System.out.println("Please enter a valid number!");
