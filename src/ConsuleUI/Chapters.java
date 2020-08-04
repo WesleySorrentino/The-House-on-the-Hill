@@ -63,12 +63,10 @@ public class Chapters {
                         "\nMark: Well we are here, what's the plan Jake?\n" +
                         "\n" + userName +":" + " We can either go through the main gate or we can go around the back of the house.\n" +
                         "\nMark: Its your call, What are we going to do?";
-//        slowTextScroll(entryText);
+        slowTextScroll(entryText);
         Key mainGateKey = new Key("Main Gate Key",0);
-        Key backWay = new Key("Back Gate",1);
         Door mainGateDoor = new Door("Main Gate",0, true);
         player.addToInventory(mainGateKey);
-        player.addToInventory(backWay);
 
         boolean firstEncounter = true;
 

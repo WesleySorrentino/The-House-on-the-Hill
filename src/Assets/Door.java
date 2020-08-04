@@ -6,6 +6,11 @@ public class Door {
     private final int doorId;
     private final boolean isLocked;
 
+    /**
+     * @param name enter the name of the door object
+     * @param doorId enter the identifier for door object
+     * @param isLocked add true of false to determine door status
+     */
     public Door(String name, int doorId, boolean isLocked) {
         this.name = name;
         this.doorId = doorId;
@@ -17,7 +22,7 @@ public class Door {
      */
     public boolean openDoor(Key key) {
 //      Checks if key id and door id are the same
-        if (isLocked) {
+        if (isLocked()) {
             if (doorId == key.getId()) {
                 System.out.println("You have opened the " + name + " with " + key.getName());
                 return true;
@@ -27,7 +32,6 @@ public class Door {
             }
 
         } else {
-            System.out.println(name + " was not locked, You open it.");
             return true;
         }
     }
@@ -38,10 +42,10 @@ public class Door {
 
     public boolean isLocked() {
         if (isLocked) {
-            System.out.println(name + " is locked..");
+            System.out.println(name + " is locked..\n");
             return true;
         } else {
-            System.out.println(name + "was not locked");
+            System.out.println(name + " was not locked, You open it..\n");
             return false;
         }
     }

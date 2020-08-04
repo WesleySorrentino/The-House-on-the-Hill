@@ -71,7 +71,6 @@ public class Player {
             case 2:
 //              Checks to see if door is locked
                 if (!door.isLocked()) {
-                    System.out.println(door.getName() + "is open");
                     return true;
                 }
                 break;
