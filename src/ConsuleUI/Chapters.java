@@ -1,11 +1,18 @@
 package ConsuleUI;
 
+import Assets.Door;
+import Assets.Key;
+import Assets.Location;
 import Assets.Player;
+
+import java.util.Scanner;
 
 import static Utilities.Utilities.slowTextScroll;
 
 public class Chapters {
     private static final Player player = new Player("Jake");
+    private static final Scanner s = new Scanner(System.in);
+    private final Location location = new Location();
 //  Displays text for the intro
     public void intro(String userName) {
         String introText =
@@ -55,7 +62,40 @@ public class Chapters {
                         "\nNarrator: The boys head out on their journey. After a 10 minute walk they reach the house.." +
                         "\nMark: Well we are here, what's the plan Jake?\n" +
                         "\n" + userName +":" + " We can either go through the main gate or we can go around the back of the house.\n" +
-                        "\nMark: Its your call, What are going to do?";
-        slowTextScroll(entryText,800);
+                        "\nMark: Its your call, What are we going to do?";
+        slowTextScroll(entryText);
+        Key mainGateKey = new Key("Main Gate Key",0);
+        Key backWay = new Key("Back Gate",1);
+        Door mainGateDoor = new Door("Main Gate",0, true);
+        player.addToInventory(mainGateKey);
+        player.addToInventory(backWay);
+
+        boolean firstEncounter = true;
+
+        while (firstEncounter) {
+            String text =
+                    "1. Main Gate\n" +
+                    "2. The back way\n";
+
+            System.out.println(text);
+            System.out.println("Enter a number: ");
+            int choice = s.nextInt();
+            s.nextLine();
+
+            switch (choice) {
+                case 1:
+                    if (player.userAction(mainGateDoor)) {
+                        location.mainGate(mainGateDoor);
+                        firstEncounter =false;
+                    } else {
+                        System.out.println("Did not work");
+                    }
+                case 2:
+                    location.backWay();
+                    break;
+                default:
+                    System.out.println("Please enter a valid number");
+            }
+        }
     }
 }
