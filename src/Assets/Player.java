@@ -22,15 +22,17 @@ public class Player {
      * Allows user to try and open doors
      * @param door Input the door you want to try and open
      */
-    public void useKey(Door door) {
+    public boolean useKey(Door door) {
         displayInventory();
         System.out.println("Type the number of the key you want to use: ");
         int choice = s.nextInt();
 
         if (choice <= keyInventory.size()) {
-            door.openDoor(keyInventory.get(choice - 1));
+            return door.openDoor(keyInventory.get(choice - 1));
         } else {
             System.out.println("Please enter a valid number!");
+
+            return false;
         }
     }
 //  Adds a item to inventory
@@ -50,9 +52,14 @@ public class Player {
     }
 //  Display's the available options for the user
 //  TODO Add ability to use items
-    public void userAction(Door door) {
-        System.out.println("1. Use Key");
-        System.out.println("2. Display Inventory");
+    public boolean userAction(Door door) {
+        String text =
+                "\n1. Use Key on " + door.getName() +
+                "\n2. Open " + door.getName() +
+                "\n3. Display Inventory" +
+                "\n4. Go back\n";
+
+        System.out.println(text);
 
         System.out.println("Type a number listed above: ");
         int selection = s.nextInt();
@@ -60,15 +67,20 @@ public class Player {
 
         switch (selection) {
             case 1:
-                useKey(door);
-                break;
+                return useKey(door);
             case 2:
-                displayInventory();
                 break;
+            case 3:
+                displayInventory();
+                return false;
+            case 4:
+//              Gets out of selecting options
+                return false;
             default:
                 System.out.println("Please enter a valid number!");
-                break;
+                return false;
         }
+        return false;
     }
 
     public String getName() {

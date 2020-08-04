@@ -51,11 +51,10 @@ public class Menu {
 
         Utilities.slowTextScroll(text,800);
     }
-
+//  Ask's user for name
     private String enterName() {
         System.out.println("Please enter your name: ");
-        String playerInput = s.nextLine();
 
-        return playerInput;
+        return s.nextLine();
     }
 }
