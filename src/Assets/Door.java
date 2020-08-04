@@ -17,16 +17,32 @@ public class Door {
      */
     public boolean openDoor(Key key) {
 //      Checks if key id and door id are the same
-        if (doorId == key.getId()) {
-            System.out.println("You have opened the " + name + " with " + key.getName());
-            return true;
+        if (isLocked) {
+            if (doorId == key.getId()) {
+                System.out.println("You have opened the " + name + " with " + key.getName());
+                return true;
+            } else {
+                System.out.println("You tried to open the " + name + ", but you have the wrong key!\n");
+                return false;
+            }
+
         } else {
-            System.out.println("You tried to open the " + name + ", but you have the wrong key!\n");
+            System.out.println(name + " was not locked, You open it.");
+            return true;
         }
-        return false;
     }
 
     public String getName() {
         return name;
+    }
+
+    public boolean isLocked() {
+        if (isLocked) {
+            System.out.println(name + " is locked..");
+            return true;
+        } else {
+            System.out.println(name + "was not locked");
+            return false;
+        }
     }
 }

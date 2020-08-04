@@ -69,6 +69,11 @@ public class Player {
             case 1:
                 return useKey(door);
             case 2:
+//              Checks to see if door is locked
+                if (!door.isLocked()) {
+                    System.out.println(door.getName() + "is open");
+                    return true;
+                }
                 break;
             case 3:
                 displayInventory();
