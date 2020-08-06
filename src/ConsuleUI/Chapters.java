@@ -65,10 +65,8 @@ public class Chapters {
                         "\nMark: Its your call, What are we going to do?";
         slowTextScroll(entryText);
         Key mainGateKey = new Key("Main Gate Key",0);
-        Key backWay = new Key("Back Gate",1);
         Door mainGateDoor = new Door("Main Gate",0, true);
         player.addToInventory(mainGateKey);
-        player.addToInventory(backWay);
 
         boolean firstEncounter = true;
 
