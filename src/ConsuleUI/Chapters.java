@@ -1,9 +1,6 @@
 package ConsuleUI;
 
-import Assets.Door;
-import Assets.Key;
-import Assets.Location;
-import Assets.Player;
+import Assets.*;
 
 import java.util.Scanner;
 
@@ -64,9 +61,8 @@ public class Chapters {
                         "\n" + userName +":" + " We can either go through the main gate or we can go around the back of the house.\n" +
                         "\nMark: Its your call, What are we going to do?";
         slowTextScroll(entryText);
-        Key mainGateKey = new Key("Main Gate Key",0);
         Door mainGateDoor = new Door("Main Gate",0, true);
-        player.addToInventory(mainGateKey);
+        player.addToInventory(new Key("Main Gate Key",0));
 
         boolean firstEncounter = true;
 
