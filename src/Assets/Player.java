@@ -4,7 +4,6 @@ import java.util.*;
 
 public class Player {
     private final String name;
-    private final Map<Key, Integer> inventory = new HashMap<>();
     private final ArrayList<Key> keyInventory = new ArrayList<>();
     private final Scanner s = new Scanner(System.in);
 
@@ -27,7 +26,10 @@ public class Player {
         System.out.println("Type the number of the key you want to use: ");
         int choice = s.nextInt();
 
-        if (choice <= keyInventory.size()) {
+        if (choice <= 0) {
+            System.out.println("Enter a number between 1 - " + keyInventory.size());
+            return false;
+        } else if (choice <= keyInventory.size()) {
             return door.openDoor(keyInventory.get(choice - 1));
         } else {
             System.out.println("Please enter a valid number!");

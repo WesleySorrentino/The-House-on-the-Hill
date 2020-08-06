@@ -2,6 +2,7 @@ package ConsuleUI;
 
 import Assets.*;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static Utilities.Utilities.slowTextScroll;
@@ -64,31 +65,35 @@ public class Chapters {
         Door mainGateDoor = new Door("Main Gate",0, true);
         player.addToInventory(new Key("Main Gate Key",0));
 
-        boolean firstEncounter = true;
+        encounter(mainGateDoor);
+    }
 
-        while (firstEncounter) {
-            String text =
-                    "1. Main Gate\n" +
-                    "2. The back way\n";
+    /**
+     * @param doors add one or multiple door objects and display them for user to select
+     */
+    private void encounter(Door ... doors) {
+        ArrayList<Door> doorList = new ArrayList<>();
 
-            System.out.println(text);
+        boolean encounter = true;
+
+        while (encounter) {
+            int increment = 1;
+            for (Door d : doors) {
+                System.out.println(increment++ + ". " + d.getName());
+                doorList.add(d);
+            }
+
             System.out.println("Enter a number: ");
             int choice = s.nextInt();
             s.nextLine();
 
-            switch (choice) {
-                case 1:
-                    if (player.userAction(mainGateDoor)) {
-                        location.mainGate(mainGateDoor);
-                        firstEncounter =false;
-                    } else {
-                        System.out.println("Did not work");
-                    }
-                case 2:
-                    location.backWay();
-                    break;
-                default:
-                    System.out.println("Please enter a valid number");
+            if (choice <= 0) {
+                System.out.println("Enter a valid number between 1 - " + doorList.size());
+            } else if (choice <= doorList.size()) {
+                player.userAction(doorList.get(choice -1));
+                encounter = false;
+            } else {
+                System.out.println("Enter a valid number.\n");
             }
         }
     }
