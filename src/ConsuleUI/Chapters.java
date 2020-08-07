@@ -10,7 +10,6 @@ import static Utilities.Utilities.slowTextScroll;
 public class Chapters {
     private static final Player player = new Player("Jake");
     private static final Scanner s = new Scanner(System.in);
-    private final Location location = new Location();
 //  Displays text for the intro
     public void intro(String userName) {
         String introText =
@@ -62,21 +61,31 @@ public class Chapters {
                         "\n" + userName +":" + " We can either go through the main gate or we can go around the back of the house.\n" +
                         "\nMark: Its your call, What are we going to do?";
         slowTextScroll(entryText);
-        Door mainGateDoor = new Door("Main Gate",0, true);
-        player.addToInventory(new Key("Main Gate Key",0));
 
-        encounter(mainGateDoor);
+        String mainGateText = "In main gate (placementText)";
+        String backYardText = "In back yard (placementText)";
+        Door backYardGate = new Door("Backyard Gate",0,false);
+        Door mainGate = new Door("Main Gate",1,true);
+        var backWay = new Location("The Back Way",backYardGate,backYardText);
+        var mainGateLocation = new Location("Main Courtyard",mainGate,mainGateText);
+
+        switch (encounter(mainGate,backYardGate)){
+            case 0:
+                backWay.getDialogue();
+                break;
+            case 1:
+                mainGateLocation.getDialogue();
+                break;
+        }
     }
 
     /**
      * @param doors add one or multiple door objects and display them for user to select
      */
-    private void encounter(Door ... doors) {
+    private int encounter(Door ... doors) {
         ArrayList<Door> doorList = new ArrayList<>();
 
-        boolean encounter = true;
-
-        while (encounter) {
+        while (true) {
             int increment = 1;
             for (Door d : doors) {
                 System.out.println(increment++ + ". " + d.getName());
@@ -91,7 +100,8 @@ public class Chapters {
                 System.out.println("Enter a valid number between 1 - " + doorList.size());
             } else if (choice <= doorList.size()) {
                 player.userAction(doorList.get(choice -1));
-                encounter = false;
+
+                return doorList.get(choice-1).getDoorId();
             } else {
                 System.out.println("Enter a valid number.\n");
             }
