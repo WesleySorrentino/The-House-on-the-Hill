@@ -60,7 +60,7 @@ public class Chapters {
                         "\nMark: Well we are here, what's the plan Jake?\n" +
                         "\n" + userName +":" + " We can either go through the main gate or we can go around the back of the house.\n" +
                         "\nMark: Its your call, What are we going to do?";
-        slowTextScroll(entryText);
+//        slowTextScroll(entryText);
 
         String mainGateText = "In main gate (placementText)";
         String backYardText = "In back yard (placementText)";
@@ -69,14 +69,7 @@ public class Chapters {
         var backWay = new Location("The Back Way",backYardGate,backYardText);
         var mainGateLocation = new Location("Main Courtyard",mainGate,mainGateText);
 
-        switch (encounter(mainGate,backYardGate)){
-            case 0:
-                backWay.getDialogue();
-                break;
-            case 1:
-                mainGateLocation.getDialogue();
-                break;
-        }
+        locationSelector(encounter(mainGate,backYardGate),mainGateLocation,backWay);
     }
 
     /**
@@ -104,6 +97,18 @@ public class Chapters {
                 return doorList.get(choice-1).getDoorId();
             } else {
                 System.out.println("Enter a valid number.\n");
+            }
+        }
+    }
+    /**
+     * @param encounter Pass the encounter method
+     * @param locations enter the locations you want the user to see
+     */
+    private void locationSelector(int encounter, Location... locations) {
+
+        for (Location l : locations) {
+            if (encounter == l.getDoor().getDoorId()) {
+                l.getDialogue();
             }
         }
     }
