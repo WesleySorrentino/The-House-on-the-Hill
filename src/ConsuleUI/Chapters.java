@@ -100,15 +100,17 @@ public class Chapters {
             }
         }
     }
+    
     /**
      * @param encounter Pass the encounter method
      * @param locations enter the locations you want the user to see
      */
     private void locationSelector(int encounter, Location... locations) {
-
         for (Location l : locations) {
-            if (encounter == l.getDoor().getDoorId()) {
+            if (encounter != -1 && encounter == l.getDoor().getDoorId()) {
+//              Displays the selected locations dialogue
                 l.getDialogue();
+                break;
             }
         }
     }

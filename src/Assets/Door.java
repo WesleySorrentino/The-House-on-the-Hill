@@ -22,7 +22,7 @@ public class Door {
      */
     public boolean openDoor(Key key) {
 //      Checks if key id and door id are the same
-        if (isLocked()) {
+        if (isLocked) {
             if (doorId == key.getId()) {
                 System.out.println("You have opened the " + name + " with " + key.getName());
                 return true;
@@ -41,11 +41,11 @@ public class Door {
     }
 
     public int getDoorId() {
-        if (isLocked){
+        if (isLocked) {
             return -1;
-        } else {
-            return doorId;
         }
+
+        return doorId;
     }
 
     public boolean isLocked() {
