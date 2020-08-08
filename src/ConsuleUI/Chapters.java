@@ -69,14 +69,7 @@ public class Chapters {
         var backWay = new Location("The Back Way",backYardGate,backYardText);
         var mainGateLocation = new Location("Main Courtyard",mainGate,mainGateText);
 
-        switch (encounter(mainGate,backYardGate)){
-            case 0:
-                backWay.getDialogue();
-                break;
-            case 1:
-                mainGateLocation.getDialogue();
-                break;
-        }
+        locationSelector(encounter(mainGate,backYardGate),mainGateLocation,backWay);
     }
 
     /**
@@ -104,6 +97,20 @@ public class Chapters {
                 return doorList.get(choice-1).getDoorId();
             } else {
                 System.out.println("Enter a valid number.\n");
+            }
+        }
+    }
+    
+    /**
+     * @param encounter Pass the encounter method
+     * @param locations enter the locations you want the user to see
+     */
+    private void locationSelector(int encounter, Location... locations) {
+        for (Location l : locations) {
+            if (encounter != -1 && encounter == l.getDoor().getDoorId()) {
+//              Displays the selected locations dialogue
+                l.getDialogue();
+                break;
             }
         }
     }
