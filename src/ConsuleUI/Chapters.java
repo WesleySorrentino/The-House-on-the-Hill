@@ -60,7 +60,7 @@ public class Chapters {
                         "\nMark: Well we are here, what's the plan Jake?\n" +
                         "\n" + userName +":" + " We can either go through the main gate or we can go around the back of the house.\n" +
                         "\nMark: Its your call, What are we going to do?";
-//        slowTextScroll(entryText);
+        slowTextScroll(entryText);
 
         String mainGateText = "In main gate (placementText)";
         String backYardText = "In back yard (placementText)";

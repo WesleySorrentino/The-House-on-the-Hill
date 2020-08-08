@@ -3,16 +3,14 @@ package Assets;
 // Handles all the different keys the user can get
 public class Key extends Item{
     private final int id;
-    private final int quantity;
     /**
      * @param name Enter the name of the key
      * @param id Enter the specific Identifier for key
      * @param quantity enter the quantity
      */
-    public Key(String name, int id, int quantity) {
-        super(name);
+    public Key(String name, int quantity, int id) {
+        super(name, quantity);
         this.id = id;
-        this.quantity = quantity;
     }
 
     /**
