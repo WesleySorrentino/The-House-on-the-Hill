@@ -40,6 +40,14 @@ public class Door {
         return name;
     }
 
+    public int getDoorId() {
+        if (isLocked){
+            return -1;
+        } else {
+            return doorId;
+        }
+    }
+
     public boolean isLocked() {
         if (isLocked) {
             System.out.println(name + " is locked..\n");

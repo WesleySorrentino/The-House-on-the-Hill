@@ -4,7 +4,6 @@ import java.util.*;
 
 public class Player {
     private final String name;
-    private final Map<Key, Integer> inventory = new HashMap<>();
     private final ArrayList<Key> keyInventory = new ArrayList<>();
     private final Scanner s = new Scanner(System.in);
 
@@ -27,7 +26,10 @@ public class Player {
         System.out.println("Type the number of the key you want to use: ");
         int choice = s.nextInt();
 
-        if (choice <= keyInventory.size()) {
+        if (choice <= 0) {
+            System.out.println("Enter a number between 1 - " + keyInventory.size());
+            return false;
+        } else if (choice <= keyInventory.size()) {
             return door.openDoor(keyInventory.get(choice - 1));
         } else {
             System.out.println("Please enter a valid number!");
@@ -36,19 +38,21 @@ public class Player {
         }
     }
 //  Adds a item to inventory
-    /**
-     * @param item Adds an item to user's inventory
-     */
-    public void addToInventory(Item item) {
-        addToInventory(item);
-    }
+//    /**
+//     * @param item Adds an item or multiple items to user's inventory
+//     */
+//    public void addToInventory(Item item) {
+//        addToInventory(item);
+//    }
 //  Adds a Key to inventory
     /**
-     * @param item enter the item you wanna give the user
+     * @param item adds a key/item or multiple to user's inventory
      */
-    public void addToInventory(Key item) {
-        keyInventory.add(item);
-        System.out.println("Added " + item.getName() + " to inventory.\n");
+    public void addToInventory(Key ... item) {
+        for (Key i : item) {
+            keyInventory.add(i);
+            System.out.println("Added " + i.getName() + " to inventory.\n");
+        }
     }
 //  Display's the available options for the user
 //  TODO Add ability to use items

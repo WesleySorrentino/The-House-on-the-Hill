@@ -8,8 +8,8 @@ public class Utilities {
     /**
      * @param text input the text you want display slowly
      */
-    public static void slowTextScroll(String text) {
-        slowTextScroll(text,800);
+    public static String slowTextScroll(String text) {
+        return slowTextScroll(text,800);
     }
 
     /**
@@ -17,7 +17,7 @@ public class Utilities {
      * @param text input the text you want display slowly
      * @param milliseconds enter the amount of milliseconds you want it display at
      */
-    public static void slowTextScroll(String text, long milliseconds) {
+    public static String slowTextScroll(String text, long milliseconds) {
         BufferedReader bufReader = new BufferedReader(new StringReader(text));
         String line = null;
         while (true) {
@@ -26,13 +26,14 @@ public class Utilities {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            System.out.println(line);
             try {
-                System.out.println(line);
                 Thread.sleep(milliseconds);
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+        return null;
     }
 }
