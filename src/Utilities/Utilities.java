@@ -1,5 +1,7 @@
 package Utilities;
 
+import Assets.Location;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
@@ -35,5 +37,18 @@ public class Utilities {
             }
         }
         return null;
+    }
+    /**
+     * @param encounter Pass the encounter method
+     * @param locations enter the available locations
+     */
+    public static void locationSelector(int encounter, Location... locations) {
+        for (Location l : locations) {
+            if (encounter != -1 && encounter == l.getDoor().getDoorId()) {
+//              Displays the selected locations dialogue
+                l.getDialogue();
+                break;
+            }
+        }
     }
 }
