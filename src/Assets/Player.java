@@ -7,6 +7,10 @@ public class Player {
     private final ArrayList<Key> keyInventory = new ArrayList<>();
     private final Scanner s = new Scanner(System.in);
 
+    public Player() {
+        this.name = "Jake";
+    }
+
     public Player(String name) {
         this.name = name;
     }
