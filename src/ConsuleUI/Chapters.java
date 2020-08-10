@@ -1,10 +1,13 @@
 package ConsuleUI;
 
-import Assets.*;
+import Assets.Door;
+import Assets.Location;
+import Assets.Player;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static Utilities.Utilities.locationSelector;
 import static Utilities.Utilities.slowTextScroll;
 
 public class Chapters {
@@ -69,7 +72,9 @@ public class Chapters {
         var backWay = new Location("The Back Way",backYardGate,backYardText);
         var mainGateLocation = new Location("Main Courtyard",mainGate,mainGateText);
 
-        locationSelector(encounter(mainGate,backYardGate),mainGateLocation,backWay);
+        int firstEncounter = encounter(mainGate,backYardGate);
+
+        locationSelector(firstEncounter,mainGateLocation,backWay);
     }
 
     /**
@@ -97,20 +102,6 @@ public class Chapters {
                 return doorList.get(choice-1).getDoorId();
             } else {
                 System.out.println("Enter a valid number.\n");
-            }
-        }
-    }
-    
-    /**
-     * @param encounter Pass the encounter method
-     * @param locations enter the locations you want the user to see
-     */
-    private void locationSelector(int encounter, Location... locations) {
-        for (Location l : locations) {
-            if (encounter != -1 && encounter == l.getDoor().getDoorId()) {
-//              Displays the selected locations dialogue
-                l.getDialogue();
-                break;
             }
         }
     }

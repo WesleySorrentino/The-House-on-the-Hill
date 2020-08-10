@@ -54,7 +54,12 @@ public class Menu {
 //  Ask's user for name
     private String enterName() {
         System.out.println("Please enter your name: ");
+        String name = s.nextLine();
 
-        return s.nextLine();
+        if (name.isEmpty()) {
+            return "Jake";
+        }
+
+        return name;
     }
 }
