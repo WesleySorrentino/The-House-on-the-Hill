@@ -10,10 +10,10 @@ public class Menu {
     public void startScreen() {
         String userName = enterName();
         System.out.println("Welcome to The House on the Hill " + userName + "!");
-        selection(userName);
+        selection();
     }
 
-    private void selection(String userName) {
+    private void selection() {
 //      Displays options on the menu
         while (true) {
             System.out.println(
@@ -28,7 +28,7 @@ public class Menu {
             switch (choice) {
                 case 1:
 //                  Runs the game
-                    StoryManager.startGame(userName);
+                    StoryManager.startGame();
                     System.out.println("To be continued... Game under construction\nPlease wait til next update...");
                     break;
                 case 2:
