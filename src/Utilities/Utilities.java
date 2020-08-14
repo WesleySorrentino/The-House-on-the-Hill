@@ -20,7 +20,7 @@ public class Utilities {
      */
     public static String slowTextScroll(String filePath, long milliseconds) {
         //TODO Add input to determine where to look for users files
-        File file = new File("C:\\Users\\Wesley\\Github\\Java\\TheHouseOnTheHill\\src\\Dialogue\\"+filePath);
+        File file = new File("src\\Dialogue\\"+filePath);
         try {
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()){
