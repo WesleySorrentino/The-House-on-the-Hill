@@ -44,12 +44,7 @@ public class Menu {
 
     private void backStory() {
 //      Displays backstory text
-        String text =
-                "\nThe year is 2000, You are a 13 year old kid.\n" +
-                "You just finished your dad's old Hardy boys books\n" +
-                "and you feel inspired to go on a mystery yourself.\n";
-
-        Utilities.slowTextScroll(text,800);
+        Utilities.slowTextScroll("Misc\\backstory.txt",800);
     }
 //  Ask's user for name
     private String enterName() {
@@ -59,7 +54,6 @@ public class Menu {
         if (name.isEmpty()) {
             return "Jake";
         }
-
         return name;
     }
 }
