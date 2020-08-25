@@ -8,8 +8,7 @@ public class Menu {
     private final Scanner s = new Scanner(System.in);
 
     public void startScreen() {
-        String userName = enterName();
-        System.out.println("Welcome to The House on the Hill " + userName + "!");
+        System.out.println("Welcome to The House on the Hill!");
         selection();
     }
 
@@ -45,15 +44,4 @@ public class Menu {
     private void backStory() {
 //      Displays backstory text
         Utilities.slowTextScroll("Misc\\backstory.txt",800);
-    }
-//  Ask's user for name
-    private String enterName() {
-        System.out.println("Please enter your name: ");
-        String name = s.nextLine();
-
-        if (name.isEmpty()) {
-            return "Jake";
-        }
-        return name;
-    }
-}
+    }}
